@@ -40,7 +40,7 @@ class Request
         'response' => json_decode($guzzleResponse->getBody(), true)
       ];
     } catch (ConnectException | BadResponseException $ex) {
-      throw new RequestException($ex);
+      throw new RequestException('Request Exception', 0, $ex);
     }
   }
 
