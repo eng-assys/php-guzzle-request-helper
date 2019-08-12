@@ -2,6 +2,9 @@
 
 namespace GuzzleHelper;
 
+/**
+ * Wrap Guzzle Exceptions
+ */
 class RequestException extends \Exception
 {
     private $response;
