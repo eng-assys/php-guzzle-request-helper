@@ -32,7 +32,7 @@ class Request
       $guzzleResponse = $client->request($method, $url, [
         'http_errors' => false,
         'headers' => $headers,
-        'json' => RequestHelper::filterBodyArray($body)
+        'json' => RequestHelper::removeEmptyKeys($body)
       ]);
 
       return [

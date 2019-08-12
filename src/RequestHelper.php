@@ -92,20 +92,22 @@ class RequestHelper
   }
 
   /**
-   * Removes null contend from body array
+   * Removes empty keys from array
    * 
-   * @param array $data Body content array
+   * @param array $data Data array
    * 
    * @return array
    */
-  public static function filterBodyArray($data)
-  {
-    if (!$data) return [];
-    array_filter($data);
-    foreach (array_keys($data) as $key) {
-      if (is_array($data[$key]))
-        $data[$key] = self::filterBodyArray($data[$key]);
+  public static function removeEmptyKeys($data)
+    {
+        if (!$data) return [];
+        foreach ($data as $key => $value) {
+            if (gettype($data[$key]) == 'array') {
+                $data[$key] = self::removeEmptyKeys($data[$key]);
+            } else if ($value == null) {
+                unset($data[$key]);
+            }
+        }
+        return $data;
     }
-    return $data;
-  }
 }
