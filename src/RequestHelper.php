@@ -102,7 +102,7 @@ class RequestHelper
     {
         if (!$data) return [];
         foreach ($data as $key => $value) {
-            if (gettype($data[$key]) == 'array') {
+            if (is_array($data[$key])) {
                 $data[$key] = self::removeEmptyKeys($data[$key]);
             } else if ($value == null) {
                 unset($data[$key]);
