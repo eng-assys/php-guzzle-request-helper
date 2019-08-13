@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "description": "A Simple Helper to make Custom Requests using PHP Guzzle",
     "type": "library",
+    "license": "MIT",
     "authors": [
        {
            "name": "Lucas Vinicius dos Santos Assis",
